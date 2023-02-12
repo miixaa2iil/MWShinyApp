@@ -1,11 +1,11 @@
 Package: MWShinyApp
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Musicians' and Band's relations
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Michał WalczyBski
+Maintainer: The package maintainer <mswalczynski@gmail.com>
+Description: Testing application for small data, manipulation includes SQL queries.
+License: false
 Encoding: UTF-8
 LazyData: true
+Imports: dplyr, DT, RSQLite, shiny, shinyBS, shinydashboard, shinyjs, shinythemes, shinyWidgets, tibble
