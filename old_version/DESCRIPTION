@@ -1,0 +1,11 @@
+Package: MWShinyApp
+Type: Package
+Title: Musicians' and Band's relations
+Version: 0.2.0
+Author: Michał WalczyBski
+Maintainer: The package maintainer <mswalczynski@gmail.com>
+Description: Testing application for small data, manipulation includes SQL queries.
+License: false
+Encoding: UTF-8
+LazyData: true
+Imports: dplyr, DT, RSQLite, shiny, shinyBS, shinythemes, shinyWidgets, tibble
