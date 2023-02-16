@@ -124,7 +124,7 @@ ui <- function(id, session){
 
 ### SERVER
 
-server <- function(id){
+server <- function(id, parent_session){
   moduleServer(id,
                function(input, output, session){
 
@@ -216,7 +216,26 @@ server <- function(id){
                      export_data(conn=settings$myDB, data = insDf$df %>% select(-createdAt), my_table = settings$myTable, initial=FALSE)
                      output$insertion_table_1 <- NULL
                      insDf$df <- NULL
-                     transmissionInfo <- HTML(paste0('<b>Data sent :)</b>'))}
+                     transmissionInfo <- HTML(paste0('<b>Data sent :)</b>'))
+                     shinyWidgets::updatePickerInput(
+                       session = parent_session,
+                       "mod_2-musicians_names_2",
+                       choices = unlist(get_performers(conn=settings$myDB,
+                                                       my_table = settings$myTable,
+                                                       performer_type = "Musician"),
+                                        use.names = FALSE),
+                       clearOptions = TRUE
+                     )
+
+                     shinyWidgets::updatePickerInput(
+                       session = parent_session,
+                       "mod_2-bands_names_2",
+                       choices = unlist(get_performers(conn=settings$myDB,
+                                                       my_table = settings$myTable,
+                                                       performer_type = "Band"),
+                                        use.names = FALSE),
+                       clearOptions = TRUE
+                     )}
                    output$text_info_1 <- shiny::renderText({transmissionInfo})
 
                  })

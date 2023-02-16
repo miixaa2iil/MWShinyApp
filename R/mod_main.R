@@ -25,7 +25,7 @@ ui <- function(id){
 server <- function(id){
   moduleServer(id,
                function(input, output, session) {
-                 mod1$server(id="mod_1")
+                 mod1$server(id="mod_1", parent_session = session)
                  mod2$server(id="mod_2")
 
                })}
