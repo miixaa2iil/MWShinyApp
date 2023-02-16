@@ -51,18 +51,7 @@ ui <- function(id){
                                shinyBS::bsTooltip(ns("relations_2"), HTML(paste0("<b>After the selection click me",
                                                                         br(),
                                                                         "to retrieve performers", "&#39;", " relations :)</b>")),
-                                         "right", options = list(container = "body")),
-                               br(),
-                               br(),
-                               shinyWidgets::actionBttn(inputId=ns("choice_upload_2"),
-                                          label = "upload lisf of performers",
-                                          style = "gradient",
-                                          color = "primary",
-                                          icon = icon("upload")
-                               ),
-                               shinyBS::bsTooltip(ns("choice_upload_2"), HTML(paste0("<b>Click me if you want to update the list of performers.</b>",
-                                                                            br(),
-                                                                            "to retrieve performers", "&#39;", " relations :)</b>")))),
+                                         "right", options = list(container = "body"))),
                        tags$td(id="right_2", ### output
                                DT::dataTableOutput(ns("relation_table_2")),
                                bsTooltip(ns("relation_table_2"),  HTML(paste0("<b>You can sort the table by columns, both increasingly and decreasingly.",
@@ -82,29 +71,6 @@ ui <- function(id){
   server <- function(id){
     moduleServer(id,
                  function(input, output, session){
-
-                   ### Choices upload
-                   observeEvent(input$choice_upload_2, {
-                     shinyWidgets::updatePickerInput(
-                       session,
-                       "musicians_names_2",
-                       choices = unlist(get_performers(conn=settings$myDB,
-                                                       my_table = settings$myTable,
-                                                       performer_type = "Musician"),
-                                        use.names = FALSE),
-                       clearOptions = TRUE
-                     )
-
-                     shinyWidgets::updatePickerInput(
-                       session,
-                       "bands_names_2",
-                       choices = unlist(get_performers(conn=settings$myDB,
-                                                       my_table = settings$myTable,
-                                                       performer_type = "Band"),
-                                        use.names = FALSE),
-                       clearOptions = TRUE
-                     )
-                   })
 
                    output$relation_table_2 <- NULL
                    output$text_info_2 <- NULL
