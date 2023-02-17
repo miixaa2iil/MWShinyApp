@@ -28,7 +28,7 @@ ui <- function(id){
                                                             multiple = TRUE,
                                                             options = list(`actions-box` = TRUE,
                                                                            `multiple-separator` = " * ",
-                                                                           `none-selected-text` = "No Musician selected",
+                                                                           `none-selected-text` = "No musician selected",
                                                                            `live-search` = TRUE,
                                                                            `live-search-normalize` = TRUE)
                                                 )
