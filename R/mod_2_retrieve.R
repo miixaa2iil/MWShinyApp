@@ -26,7 +26,11 @@ ui <- function(id){
                                                                                               performer_type = "Musician"),
                                                                                use.names = FALSE),
                                                             multiple = TRUE,
-                                                            options = list(`actions-box` = TRUE)
+                                                            options = list(`actions-box` = TRUE,
+                                                                           `multiple-separator` = " * ",
+                                                                           `none-selected-text` = "No Musician selected",
+                                                                           `live-search` = TRUE,
+                                                                           `live-search-normalize` = TRUE)
                                                 )
                                ),
                                shiny::conditionalPanel(paste0("input['",
@@ -40,7 +44,11 @@ ui <- function(id){
                                                                                               ),
                                                                                use.names = FALSE),
                                                             multiple = TRUE,
-                                                            options = list(`actions-box` = TRUE))
+                                                            options = list(`actions-box` = TRUE,
+                                                                           `multiple-separator` = " * ",
+                                                                           `none-selected-text` = "No band selected",
+                                                                           `live-search` = TRUE,
+                                                                           `live-search-normalize` = TRUE))
                                ),
                                shinyWidgets::actionBttn(inputId=ns("relations_2"),
                                           label = "Retrieve relations",
